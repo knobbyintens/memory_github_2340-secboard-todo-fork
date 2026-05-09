@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from pathlib import Path
 
 from todo.model import Todo
@@ -24,3 +25,10 @@ class JsonStorage:
         if not todos:
             return 1
         return max(t.id for t in todos) + 1
+
+    def backup(self) -> Path:
+        """Write a timestamped backup of the todo file before destructive ops."""
+        stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        backup_path = self.path.with_suffix(f".{stamp}.bak")
+        backup_path.write_text(self.path.read_text())
+        return backup_path

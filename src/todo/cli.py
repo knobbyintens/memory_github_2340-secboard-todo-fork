@@ -3,7 +3,7 @@ import click
 from todo.model import Todo
 from todo.storage import JsonStorage
 
-__all__ = ["cli", "add_cmd", "list_cmd"]
+__all__ = ["cli", "add_cmd", "list_cmd", "complete_cmd"]
 
 
 @click.group()
@@ -34,3 +34,18 @@ def list_cmd() -> None:
     for t in todos:
         mark = "x" if t.done else " "
         click.echo(f"[{mark}] #{t.id} {t.title}")
+
+
+@cli.command("complete")
+@click.argument("todo_id", type=int)
+def complete_cmd(todo_id: int) -> None:
+    """Mark a todo as done."""
+    store = JsonStorage()
+    todos = store.load()
+    for t in todos:
+        if t.id == todo_id:
+            t.done = True
+            store.save(todos)
+            click.echo(f"completed #{todo_id}")
+            return
+    click.echo(f"no todo with id {todo_id}", err=True)
