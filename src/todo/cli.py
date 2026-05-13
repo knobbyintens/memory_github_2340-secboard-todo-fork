@@ -3,7 +3,7 @@ import click
 from todo.model import Todo
 from todo.storage import JsonStorage
 
-__all__ = ["cli", "add_cmd", "list_cmd", "complete_cmd"]
+__all__ = ["cli", "add_cmd", "list_cmd", "complete_cmd", "bulk_add_cmd"]
 
 
 @click.group()
@@ -49,3 +49,12 @@ def complete_cmd(todo_id: int) -> None:
             click.echo(f"completed #{todo_id}")
             return
     click.echo(f"no todo with id {todo_id}", err=True)
+
+
+@cli.command("bulk-add")
+@click.argument("titles", nargs=-1)
+def bulk_add_cmd(titles: tuple[str, ...]) -> None:
+    """Add many todos at once."""
+    store = JsonStorage()
+    n = store.bulk_add(list(titles))
+    click.echo(f"added {n} todos")

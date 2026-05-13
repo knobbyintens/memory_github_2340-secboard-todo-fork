@@ -7,6 +7,11 @@ from todo.model import Todo
 DEFAULT_PATH = Path.home() / ".todo.json"
 
 
+def _validate_titles(titles: list[str]) -> list[str]:
+    """Strip whitespace and drop blanks before insertion."""
+    return [t.strip() for t in titles if t.strip()]
+
+
 class JsonStorage:
     def __init__(self, path: Path = DEFAULT_PATH):
         self.path = Path(path)
@@ -32,3 +37,14 @@ class JsonStorage:
         backup_path = self.path.with_suffix(f".{stamp}.bak")
         backup_path.write_text(self.path.read_text())
         return backup_path
+
+    def bulk_add(self, titles: list[str]) -> int:
+        """Append many todos in one go. Returns count added."""
+        todos: list[Todo] = self.load()
+        added = 0
+        for title in titles:
+            new_todo = Todo(id=self.next_id(todos), title=title)
+            todos.add(new_todo)
+            added += 1
+        self.save(todos)
+        return added
