@@ -1,0 +1,149 @@
+{
+  "review_cycle": "Q3 2026",
+  "program": "Quarterly external attack surface review",
+  "advisories": [
+    {
+      "advisory_id": "ADV-2026-001",
+      "title": "Hardcoded JWT signing key embedded in the authentication service",
+      "component": "auth-service",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "exploit_status": "actively-exploited",
+      "internet_facing": "yes",
+      "reported_date": "2026-09-20",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-002",
+      "title": "Reflected XSS on the public status page search field",
+      "component": "web-portal",
+      "severity": "high",
+      "cvss_score": 8.1,
+      "exploit_status": "proof-of-concept",
+      "internet_facing": "yes",
+      "reported_date": "2026-10-01",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-003",
+      "title": "Verbose stack traces returned by the billing API error handler",
+      "component": "billing-api",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "exploit_status": "theoretical",
+      "internet_facing": "yes",
+      "reported_date": "2026-10-30",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-004",
+      "title": "Outdated OpenSSL release in the data pipeline workers",
+      "component": "data-pipeline",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "exploit_status": "actively-exploited",
+      "internet_facing": "no",
+      "reported_date": "2026-09-05",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-005",
+      "title": "Low-entropy password reset tokens in the identity service",
+      "component": "identity-service",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "exploit_status": "theoretical",
+      "internet_facing": "yes",
+      "reported_date": "2026-10-08",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-006",
+      "title": "Missing rate limiting on the login endpoint",
+      "component": "identity-service",
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "exploit_status": "proof-of-concept",
+      "internet_facing": "yes",
+      "reported_date": "2026-10-15",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-007",
+      "title": "Unvalidated redirect in the marketing campaign links",
+      "component": "web-portal",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "exploit_status": "theoretical",
+      "internet_facing": "yes",
+      "reported_date": "2026-10-22",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-008",
+      "title": "Server-side request forgery in the media proxy endpoint",
+      "component": "media-service",
+      "severity": "critical",
+      "cvss_score": 9.1,
+      "exploit_status": "proof-of-concept",
+      "internet_facing": "yes",
+      "reported_date": "2026-09-28",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-009",
+      "title": "Debug diagnostics endpoint left enabled in staging analytics",
+      "component": "analytics-service",
+      "severity": "low",
+      "cvss_score": 3.7,
+      "exploit_status": "theoretical",
+      "internet_facing": "no",
+      "reported_date": "2026-11-02",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-010",
+      "title": "Report builder depends on a library with a known remote code execution flaw",
+      "component": "report-builder",
+      "severity": "critical",
+      "cvss_score": 9.6,
+      "exploit_status": "actively-exploited",
+      "internet_facing": "no",
+      "reported_date": "2026-09-11",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-011",
+      "title": "Session cookie missing the SameSite attribute on the portal",
+      "component": "web-portal",
+      "severity": "low",
+      "cvss_score": 2.6,
+      "exploit_status": "theoretical",
+      "internet_facing": "yes",
+      "reported_date": "2026-11-05",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-012",
+      "title": "Log injection vulnerability in the audit trail writer",
+      "component": "compliance-service",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "exploit_status": "actively-exploited",
+      "internet_facing": "no",
+      "reported_date": "2026-10-18",
+      "status": "open"
+    },
+    {
+      "advisory_id": "ADV-2026-013",
+      "title": "TLS certificate chain reuse across tenant subdomains",
+      "component": "web-portal",
+      "severity": "high",
+      "cvss_score": 7.2,
+      "exploit_status": "theoretical",
+      "internet_facing": "yes",
+      "reported_date": "2026-08-30",
+      "status": "resolved"
+    }
+  ]
+}
